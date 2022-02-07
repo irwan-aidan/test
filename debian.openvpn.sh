@@ -144,12 +144,12 @@ function openvpn {
     mkdir /etc/openvpn/easy-rsa/
     cp /usr/share/easy-rsa/* /etc/openvpn/easy-rsa/
 
-    sed -i 's/export KEY_COUNTRY="US"/export KEY_COUNTRY="$country"/' /etc/openvpn/easy-rsa/vars
-    sed -i 's/export KEY_PROVINCE="CA"/export KEY_PROVINCE="$province"/' /etc/openvpn/easy-rsa/vars
-    sed -i 's/export KEY_CITY="SanFrancisco"/export KEY_CITY="$city"/' /etc/openvpn/easy-rsa/vars
-    sed -i 's/export KEY_ORG="Fort-Funston"/export KEY_ORG="$organization"/' /etc/openvpn/easy-rsa/vars
-    sed -i 's/export KEY_EMAIL="me@myhost.mydomain"/export KEY_EMAIL="$email"/' /etc/openvpn/easy-rsa/vars
-    sed -i 's/export KEY_OU="MyOrganizationalUnit"/export KEY_OU="$organizationUnit"/' /etc/openvpn/easy-rsa/vars
+    sed -i 's/export KEY_COUNTRY="MY"/export KEY_COUNTRY="$country"/' /etc/openvpn/easy-rsa/vars
+    sed -i 's/export KEY_PROVINCE="Selangor"/export KEY_PROVINCE="$province"/' /etc/openvpn/easy-rsa/vars
+    sed -i 's/export KEY_CITY="Gombak"/export KEY_CITY="$city"/' /etc/openvpn/easy-rsa/vars
+    sed -i 's/export KEY_ORG="Aidan-Tech"/export KEY_ORG="$organization"/' /etc/openvpn/easy-rsa/vars
+    sed -i 's/export KEY_EMAIL="server@aidan.my"/export KEY_EMAIL="$email"/' /etc/openvpn/easy-rsa/vars
+    sed -i 's/export KEY_OU="AidanTech"/export KEY_OU="$organizationUnit"/' /etc/openvpn/easy-rsa/vars
 
     cd /etc/openvpn/easy-rsa/
     source ./vars
@@ -178,6 +178,7 @@ function openvpn {
     echo "port $port" > /etc/openvpn/server.conf
     echo "proto tcp" >> /etc/openvpn/server.conf
     echo "dev tun" >> /etc/openvpn/server.conf
+    echo "management 127.0.0.1 5555" >> /etc/openvpn/server.conf
     echo "ca /etc/openvpn/keys/ca.crt" >> /etc/openvpn/server.conf
     echo "cert /etc/openvpn/keys/server.crt" >> /etc/openvpn/server.conf
     echo "key /etc/openvpn/keys/server.key" >> /etc/openvpn/server.conf
