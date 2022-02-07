@@ -73,37 +73,37 @@ function question {
     ipaddr=${ipaddr:-$default}
 
     # Get port
-    default="1194"
+    default="1720"
     read -p "Enter port for OpenVPN [$default]: " port
     port=${port:-$default}
 
     # Get country
-    default="US"
+    default="MY"
     read -p "Enter country [$default]: " country
     country=${country:-$default}
 
     # Get providence/state
-    default="CA"
+    default="SELANGOR"
     read -p "Enter state [$default]: " province
     province=${province:-$default}
 
     # Get city
-    default="SanFrancisco"
+    default="Gombak"
     read -p "Enter city [$default]: " city
     city=${city:-$default}
 
     # Get organization
-    default="Fort-Funston"
+    default="Aidan-Tech"
     read -p "Enter organization [$default]: " organization
     organization=${organization:-$default}
 
     # Get email
-    default="me@myhost.mydomain"
+    default="server@aidan.my"
     read -p "Enter email [$default]: " email
     email=${email:-$default}
 
     # Get organization unit
-    default="MyOrganizationalUnit"
+    default="Platform-Department"
     read -p "Enter organization unit [$default]: " organizationUnit
     organizationUnit=${organizationUnit:-$default}
 }
@@ -116,7 +116,7 @@ function firewall {
     ufw allow 22
     ufw allow 80
     ufw allow 443
-    ufw allow 1194/tcp
+    ufw allow 1720/tcp
 
     echo '' > /etc/ufw/before.rules
     echo '*nat' >> /etc/ufw/before.rules
